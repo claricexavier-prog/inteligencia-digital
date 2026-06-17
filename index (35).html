@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Desinformação - Cidadania Digital</title>
+    <title>Cidadania Digital & IA</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -11,6 +11,11 @@
     <header>
         <nav class="navbar">
             <div class="logo">Conexão<span>Consciente</span></div>
+            <button class="menu-toggle" aria-label="Abrir menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
             <ul class="nav-links">
                 <li><a href="index.html">Início</a></li>
                 <li><a href="deepfakes.html">Deepfakes</a></li>
@@ -19,17 +24,43 @@
         </nav>
     </header>
 
-    <section class="conteudo-sec" style="margin-top: 80px;">
+    <section class="hero-section">
+        <div class="hero-content animate-fade-in">
+            <h1>Cidadania Digital <br>& Inteligência Artificial</h1>
+            <p>Navegando pelos impactos das Deepfakes e das redes de desinformação na sociedade.</p>
+            <a href="#sobre" class="btn-principal">Iniciar Exploração</a>
+        </div>
+    </section>
+
+    <section id="sobre" class="conteudo-sec">
         <div class="container">
-            <h2>A Epidemia da Desinformação</h2>
-            <p>Diferente do erro jornalístico, a <strong>desinformação</strong> é a criação deliberada de conteúdo falso para enganar, lucrar ou obter poder político. Na era da IA, ferramentas de geração de texto em massa conseguem criar milhares de artigos falsos convincentes em segundos.</p>
+            <div class="secao-header">
+                <h2>O Desafio da Era Algorítmica</h2>
+                <div class="linha-decorativa"></div>
+            </div>
+            <p class="texto-destaque">A Inteligência Artificial revolucionou a criação de conteúdo. Ser um <strong>cidadão digital</strong> hoje vai além do domínio técnico; exige discernimento crítico para proteger a verdade em um ecossistema hiperconectado.</p>
             
-            <div id="area-quiz"></div>
+            <div class="impactos-cards">
+                <div class="card">
+                    <div class="card-icon">🎭</div>
+                    <h4>Mídia Sintética</h4>
+                    <p>Entenda como as Deepfakes manipulam áudio e vídeo com precisão quase humana e os riscos dessa tecnologia.</p>
+                    <a href="deepfakes.html" class="card-link">Explorar Deepfakes →</a>
+                </div>
+                <div class="card">
+                    <div class="card-icon">📢</div>
+                    <h4>Algoritmos e Mentiras</h4>
+                    <p>Analise a mecânica por trás da desinformação em massa e descubra o impacto nas estruturas democráticas.</p>
+                    <a href="desinformacao.html" class="card-link">Analisar Impacto →</a>
+                </div>
+            </div>
         </div>
     </section>
 
     <footer>
-        <p>&copy; 2026 - Hub de Cidadania Digital.</p>
+        <div class="container footer-content">
+            <p>&copy; 2026 - Hub de Cidadania Digital. Educação e Conscientização Tecnológica.</p>
+        </div>
     </footer>
 
     <script src="script.js"></script>
