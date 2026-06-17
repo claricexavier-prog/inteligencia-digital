@@ -1,42 +1,39 @@
 document.addEventListener("DOMContentLoaded", () => {
     
-    // 1. ANIMAÇÃO DE REVELAÇÃO AO ROLAR A PÁGINA (SCROLL REVEAL)
+    // 1. EFEITO DE SURGIMENTO SUAVE (SCROLL REVEAL)
     const secoes = document.querySelectorAll(".conteudo-sec");
 
     const checarScroll = () => {
-        const gatilho = window.innerHeight * 0.85; // Dispara quando a seção chega a 85% da tela
+        const gatilho = window.innerHeight * 0.85;
 
         secoes.forEach(secao => {
             const topoSecao = secao.getBoundingClientRect().top;
-
             if (topoSecao < gatilho) {
                 secao.classList.add("visivel");
             }
         });
     };
 
-    // Executa uma vez ao carregar e depois a cada scroll
     checarScroll();
     window.addEventListener("scroll", checarScroll);
 
 
-    // 2. SISTEMA INTERATIVO DE CHECAGEM (MINI-QUIZ)
-    // Vamos criar dinamicamente um botão de teste na seção de combate
-    const secaoCombate = document.querySelector("#combate .container");
+    // 2. INJEÇÃO DO QUIZ APENAS NA PÁGINA DE DESINFORMAÇÃO
+    const areaQuiz = document.getElementById("area-quiz");
     
-    if (secaoCombate) {
+    if (areaQuiz) {
         const divQuiz = document.createElement("div");
         divQuiz.className = "quiz-container";
         divQuiz.innerHTML = `
-            <h3><br>Teste seus reflexos digitais</h3>
-            <p>Você recebeu um vídeo do presidente anunciando que o feriado de amanhã foi cancelado. O que você faz?</p>
-            <button class="btn-quiz" data-resposta="errado">Compartilho imediatamente para avisar meus amigos.</button>
-            <button class="btn-quiz" data-resposta="certo">Olho o site oficial do governo e portais de notícias antes de acreditar.</button>
+            <h3>🛡️ Teste de Reflexo Digital</h3>
+            <p>Um perfil com foto de inteligência artificial mandou um link alarmante sobre contaminação da água na sua cidade no grupo do bairro. O que você faz?</p>
+            <button class="btn-quiz" data-resposta="errado">Repasso o link imediatamente nos outros grupos para alertar conhecidos.</button>
+            <button class="btn-quiz" data-resposta="certo">Não compartilho e procuro o canal oficial de saneamento ou jornais locais para checar.</button>
             <p id="resultado-quiz" class="resultado-quiz"></p>
         `;
-        secaoCombate.appendChild(divQuiz);
+        areaQuiz.appendChild(divQuiz);
 
-        // Lógica dos botões do quiz
+        // Lógica de resposta do Quiz
         const botoes = divQuiz.querySelectorAll(".btn-quiz");
         const textoResultado = divQuiz.querySelector("#resultado-quiz");
 
@@ -45,13 +42,24 @@ document.addEventListener("DOMContentLoaded", () => {
                 const escolha = e.target.getAttribute("data-resposta");
                 
                 if (escolha === "certo") {
-                    textoResultado.innerHTML = "<strong>✅ Perfeito!</strong> Você agiu como um verdadeiro cidadão digital. A checagem evita o pânico e a desinformação.";
+                    textoResultado.innerHTML = "<strong>✅ Resposta Correta!</strong> Quebrar a corrente de compartilhamento é o passo mais eficaz para matar a desinformação.";
                     textoResultado.style.color = "#38bdf8";
                 } else {
-                    textoResultado.innerHTML = "<strong>❌ Cuidado!</strong> Vídeos de líderes políticos são os alvos favoritos de <em>Deepfakes</em>. Sempre cheque antes de repassar.";
+                    textoResultado.innerHTML = "<strong>❌ Alerta de Perigo!</strong> Compartilhar por impulso gera pânico coletivo desnecessário. Sempre verifique fontes oficiais antes.";
                     textoResultado.style.color = "#ef4444";
                 }
             });
         });
     }
+
+    // 3. DESTACAR A PÁGINA ATUAL NO MENU
+    const linksMenu = document.querySelectorAll(".nav-links a");
+    const paginaAtual = window.location.pathname.split("/").pop();
+
+    linksMenu.forEach(link => {
+        if (link.getAttribute("href") === paginaAtual) {
+            link.style.color = "#38bdf8";
+            link.style.fontWeight = "bold";
+        }
+    });
 });
