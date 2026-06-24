@@ -30,7 +30,7 @@ body {
 }
 
 .logo span {
-    color: #ff66b2; /* Detalhe em rosa no logo */
+    color: #ff66b2;
 }
 
 /* Abas de Navegação */
@@ -44,11 +44,11 @@ body {
 }
 
 .nav-tabs a:hover, .nav-tabs a.active {
-    background-color: #ff66b2; /* Rosa ao passar o mouse / ativa */
+    background-color: #ff66b2;
     color: #fff;
 }
 
-/* Abertura com Listras Rosa e Branco */
+/* Abertura Listrada em Rosa e Branco */
 .hero-striped {
     background: repeating-linear-gradient(
         45deg,
@@ -57,13 +57,13 @@ body {
         #ffffff 40px,
         #ffffff 80px
     );
-    padding: 100px 20px;
+    padding: 90px 20px;
     text-align: center;
     border-bottom: 5px solid #ff66b2;
 }
 
 .hero-content {
-    background-color: rgba(255, 255, 255, 0.9); /* Fundo semi-transparente para dar leitura */
+    background-color: rgba(255, 255, 255, 0.95);
     display: inline-block;
     padding: 30px 50px;
     border-radius: 10px;
@@ -71,57 +71,78 @@ body {
 }
 
 .hero-content h1 {
-    font-size: 2.5rem;
-    color: #333;
+    font-size: 2.3rem;
+    color: #111;
     margin-bottom: 10px;
 }
 
 .hero-content p {
-    font-size: 1.2rem;
-    color: #666;
+    font-size: 1.1rem;
+    color: #555;
 }
 
-/* Corpo da Página */
+/* Container do Conteúdo */
 .content-container {
-    max-width: 1100px;
+    max-width: 1000px;
     margin: 40px auto;
     padding: 0 20px;
+    min-height: 300px;
 }
 
+/* Controle de Exibição das Abas */
+.tab-content {
+    display: none;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.tab-content.active-content {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Elementos Internos das Abas */
 .intro-summary {
     text-align: center;
     margin-bottom: 40px;
 }
 
-.intro-summary h2 {
+.intro-summary h2, .tab-content h2 {
     font-size: 2rem;
     margin-bottom: 15px;
     color: #111;
 }
 
-.intro-summary p {
+.intro-summary p, .tab-content p {
     font-size: 1.1rem;
     line-height: 1.6;
-    color: #555;
+    color: #444;
 }
 
-hr {
-    border: 0;
-    height: 1px;
-    background: #ddd;
-    margin: 40px 0;
+.tab-content ul {
+    margin-top: 15px;
+    padding-left: 20px;
 }
 
-/* Cards de Links Internos */
+.tab-content li {
+    margin-bottom: 12px;
+    font-size: 1.05rem;
+    line-height: 1.6;
+}
+
+/* Cards da Home */
 .navigation-cards {
     display: flex;
     gap: 20px;
     justify-content: space-between;
+    margin-top: 30px;
 }
 
 .card {
     background: #fff;
-    padding: 30px;
+    padding: 25px;
     flex: 1;
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0,0,0,0.05);
@@ -129,13 +150,13 @@ hr {
 }
 
 .card h3 {
-    margin-bottom: 15px;
+    margin-bottom: 12px;
 }
 
 .card p {
     color: #666;
     margin-bottom: 20px;
-    line-height: 1.5;
+    font-size: 1rem;
 }
 
 .btn-read {
@@ -143,9 +164,11 @@ hr {
     background: #ff66b2;
     color: #fff;
     text-decoration: none;
-    padding: 10px 20px;
+    padding: 10px 15px;
     border-radius: 5px;
     font-weight: bold;
+    font-size: 0.9rem;
+    transition: background 0.2s;
 }
 
 .btn-read:hover {
@@ -157,5 +180,6 @@ footer {
     padding: 20px;
     background: #111;
     color: #777;
-    margin-top: 50px;
+    margin-top: 60px;
+    font-size: 0.9rem;
 }
