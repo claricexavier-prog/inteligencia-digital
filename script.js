@@ -1,29 +1,46 @@
-function mudarAba(evento, idDaSecao) {
-    evento.preventDefault();
+document.addEventListener("DOMContentLoaded", () => {
+    const links = document.querySelectorAll(".nav-link");
+    const secoes = document.querySelectorAll(".tab-content");
+    const botoesCards = document.querySelectorAll("[data-goto]");
 
-    // Mapeia os IDs para a ordem dos links no menu
-    const mapeamentoIndices = { 'home': 0, 'cidadania': 1, 'deepfakes': 2, 'combate': 3 };
-    const indiceLink = mapeamentoIndices[idDaSecao];
+    // função para gerenciar a troca de abas
+    function gerenciarAbas(idAlvo) {
+        // remove classes ativas do menu
+        links.forEach(link => {
+            if (link.getAttribute("data-target") === idAlvo) {
+                link.classList.add("active");
+            } else {
+                link.classList.remove("active");
+            }
+        });
 
-    // 1. Atualiza a classe ativa nos links do menu
-    const todosOsLinks = document.querySelectorAll(".nav-tabs a");
-    todosOsLinks.forEach(link => link.classList.remove("active"));
-    
-    if (todosOsLinks[indiceLink]) {
-        todosOsLinks[indiceLink].classList.add("active");
+        // altera a visibilidade das seções
+        secoes.forEach(secao => {
+            if (secao.id === idAlvo) {
+                secao.classList.add("active-content");
+            } else {
+                secao.classList.remove("active-content");
+            }
+        });
+
+        // rola a página para o conteúdo
+        window.scrollTo({ top: 320, behavior: "smooth" });
     }
 
-    // 2. Esconde todas as seções
-    document.querySelectorAll(".tab-content").forEach(conteudo => {
-        conteudo.classList.remove("active-content");
+    // cliques no menu
+    links.forEach(link => {
+        link.addEventListener("click", (e) => {
+            e.preventDefault();
+            const alvo = link.getAttribute("data-target");
+            gerenciarAbas(alvo);
+        });
     });
 
-    // 3. Mostra a seção desejada
-    const secaoAlvo = document.getElementById(idDaSecao);
-    if (secaoAlvo) {
-        secaoAlvo.classList.add("active-content");
-    }
-
-    // Rola a página de volta para o topo de forma suave se o usuário estiver muito abaixo
-    window.scrollTo({ top: 320, behavior: 'smooth' });
-}
+    // cliques nos cards
+    botoesCards.forEach(botao => {
+        botao.addEventListener("click", () => {
+            const alvo = botao.getAttribute("data-goto");
+            gerenciarAbas(alvo);
+        });
+    });
+});
