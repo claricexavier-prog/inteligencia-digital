@@ -1,93 +1,54 @@
 document.addEventListener("DOMContentLoaded", () => {
-    
-    // 1. MENU HAMBÚRGUER RESPONSIVO
-    const menuToggle = document.querySelector(".menu-toggle");
-    const navLinks = document.querySelector(".nav-links");
+    // Seleciona todos os links de abas do menu
+    const linksAbas = document.querySelectorAll(".nav-tabs a");
 
-    if (menuToggle && navLinks) {
-        menuToggle.addEventListener("click", () => {
-            navLinks.classList.toggle("active");
-            menuToggle.classList.toggle("active");
-        });
-    }
-
-    // 2. DETECÇÃO DE ROLAGEM COM EFICIÊNCIA (SCROLL REVEAL COM OBSERVER)
-    const secoes = document.querySelectorAll(".conteudo-sec");
-    
-    const opcoesObserver = {
-        root: null,
-        threshold: 0.1,
-        rootMargin: "0px 0px -50px 0px"
-    };
-
-    const secaoObserver = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add("visivel");
-                observer.unobserve(entry.target); // Evita reprocessamento desnecessário
-            }
-        });
-    }, opcoesObserver);
-
-    secoes.forEach(secao => {
-        secaoObserver.observe(secao);
-    });
-
-    // 3. INJEÇÃO DINÂMICA DO COMPONENTE DE SIMULAÇÃO (QUIZ)
-    const areaQuiz = document.getElementById("area-quiz");
-    
-    if (areaQuiz) {
-        const divQuiz = document.createElement("div");
-        divQuiz.className = "quiz-container dynamic-card";
-        divQuiz.innerHTML = `
-            <h3>🛡️ Laboratório de Verificação Social</h3>
-            <p class="quiz-pergunta">Um perfil automatizado compartilha um link alarmante sobre um surto de contaminação na rede de abastecimento da cidade dentro de grupos locais. Como proceder?</p>
+    linksAbas.forEach((link, index) => {
+        link.addEventListener("click", (evento) => {
+            evento.preventDefault(); // Impede o link de recarregar a página
             
-            <div class="quiz-options">
-                <button class="btn-quiz" data-status="errado">
-                    <span class="opt-marker">A</span> Compartilhar o link rapidamente em redes familiares para garantir o aviso imediato de todos.
-                </button>
-                <button class="btn-quiz" data-status="certo">
-                    <span class="opt-marker">B</span> Reter o link, checar os portais oficiais da companhia de saneamento local e agências de checagem consolidadas.
-                </button>
-            </div>
-            
-            <div id="resultado-quiz" class="resultado-quiz-box hide"></div>
-        `;
-        areaQuiz.appendChild(divQuiz);
+            // Mapeia a ordem dos links para os IDs correspondentes das seções
+            const idsDasAbas = ["home", "cidadania", "deepfakes", "combate"];
+            const destinoId = idsDasAbas[index];
 
-        const botoesQuiz = divQuiz.querySelectorAll(".btn-quiz");
-        const painelResultado = divQuiz.querySelector("#resultado-quiz");
-
-        botoesQuiz.forEach(botao => {
-            botao.addEventListener("click", (e) => {
-                // Remove seleções anteriores
-                botoesQuiz.forEach(b => b.classList.remove("selected"));
-                
-                const alvo = e.currentTarget;
-                alvo.classList.add("selected");
-                const status = alvo.getAttribute("data-status");
-
-                painelResultado.classList.remove("hide", "success", "error");
-
-                if (status === "certo") {
-                    painelResultado.innerHTML = "<h4>✅ Protocolo Correto!</h4><p>Interromper o ciclo de compartilhamento por impulso é o método mais eficaz no combate à proliferação de vetores desinformativos artificiais.</p>";
-                    painelResultado.classList.add("success");
-                } else {
-                    painelResultado.innerHTML = "<h4>❌ Atenção ao Risco!</h4><p>O compartilhamento imediato baseado em gatilhos emocionais atua em conformidade com o design malicioso das campanhas de desinformação automatizada.</p>";
-                    painelResultado.classList.add("error");
-                }
-            });
+            ativarAbaPorId(link, destinoId);
         });
-    }
-
-    // 4. DESTAQUE AUTOMÁTICO DO LINK ATIVO
-    const linksMenu = document.querySelectorAll(".nav-links a");
-    const caminhoAtual = window.location.pathname.split("/").pop();
-
-    linksMenu.forEach(link => {
-        if (link.getAttribute("href") === caminhoAtual || (caminhoAtual === "" && link.getAttribute("href") === "index.html")) {
-            link.classList.add("active-link");
-        }
     });
 });
+
+// Função auxiliar para trocar a aba ativa de forma visual e estrutural
+function ativarAbaPorId(elementoClicado, idDaSecao) {
+    // 1. Remove a classe 'active' de todos os links do menu
+    document.querySelectorAll(".nav-tabs a").forEach(link => link.classList.remove("active"));
+    
+    // 2. Adiciona a classe 'active' apenas no link que foi clicado
+    elementoClicado.classList.add("active");
+
+    // 3. Esconde todas as seções de conteúdo
+    document.querySelectorAll(".tab-content").forEach(conteudo => {
+        conteudo.classList.remove("active-content");
+    });
+
+    // 4. Mostra apenas a seção de conteúdo correspondente
+    const secaoAlvo = document.getElementById(idDaSecao);
+    if (secaoAlvo) {
+        secaoAlvo.classList.add("active-content");
+    }
+}
+
+// Função extra para fazer os botões de dentro dos "Cards" da Home também mudarem de aba
+function mudarAba(evento, idDaSecao) {
+    evento.preventDefault();
+    
+    // Mapeia qual link do menu corresponde ao ID solicitado
+    const mapeamentoIndices = { 'home': 0, 'cidadania': 1, 'deepfakes': 2, 'combate': 3 };
+    const indiceLink = mapeamentoIndices[idDaSecao];
+    
+    const todosOsLinks = document.querySelectorAll(".nav-tabs a");
+    const linkCorrespondente = todosOsLinks[indiceLink];
+
+    if (linkCorrespondente) {
+        ativarAbaPorId(linkCorrespondente, idDaSecao);
+        // Rola a página suavemente para o topo do conteúdo
+        window.scrollTo({ top: 350, behavior: 'smooth' });
+    }
+}
