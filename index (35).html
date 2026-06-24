@@ -11,10 +11,10 @@
     <header class="main-header">
         <div class="logo">Cidadania <span>Digital</span></div>
         <nav class="nav-tabs">
-            <a href="#" class="active">Home</a>
-            <a href="#">Cidadania Digital</a>
-            <a href="#">Deepfakes</a>
-            <a href="#">Combate à Mentira</a>
+            <a href="#" class="active" onclick="mudarAba(event, 'home')">Home</a>
+            <a href="#" onclick="mudarAba(event, 'cidadania')">Cidadania Digital</a>
+            <a href="#" onclick="mudarAba(event, 'deepfakes')">Deepfakes</a>
+            <a href="#" onclick="mudarAba(event, 'combate')">Combate</a>
         </nav>
     </header>
 
@@ -27,24 +27,43 @@
 
     <main class="content-container">
         
-        <section class="intro-summary">
-            <h2>A Porta de Entrada</h2>
-            <p>Navegar na internet hoje exige mais do que apenas conexão: exige olhar crítico. A ascensão da Inteligência Artificial trouxe ferramentas incríveis, mas também facilitou a criação de <strong>deepfakes</strong> altamente realistas, capazes de distorcer a verdade e espalhar desinformação em massa.</p>
+        <section id="home" class="tab-content active-content">
+            <div class="intro-summary">
+                <h2>A Porta de Entrada</h2>
+                <p>Navegar na internet hoje exige mais do que apenas conexão: exige olhar crítico. A ascensão da Inteligência Artificial trouxe ferramentas incríveis, mas também facilitou a criação de <strong>deepfakes</strong> altamente realistas, capazes de distorcer a verdade.</p>
+            </div>
+            <div class="navigation-cards">
+                <div class="card">
+                    <h3>O que são Deepfakes?</h3>
+                    <p>Entenda a tecnologia por trás da manipulação de vídeos e vozes.</p>
+                    <a href="#" class="btn-read" onclick="mudarAba(event, 'deepfakes')">Ir para Deepfakes</a>
+                </div>
+                <div class="card">
+                    <h3>Guia de Sobrevivência Digital</h3>
+                    <p>Aprenda a checar fontes e não cair em armadilhas virtuais.</p>
+                    <a href="#" class="btn-read" onclick="mudarAba(event, 'combate')">Ir para Combate</a>
+                </div>
+            </div>
         </section>
 
-        <hr>
+        <section id="cidadania" class="tab-content">
+            <h2>Cidadania Digital</h2>
+            <p>Ser um cidadão digital significa usar a tecnologia de forma responsável, ética e segura. Envolve o respeito ao próximo nas redes, a proteção dos seus próprios dados e a habilidade de questionar a veracidade de tudo o que consome.</p>
+        </section>
 
-        <section class="navigation-cards">
-            <div class="card">
-                <h3>O que são Deepfakes?</h3>
-                <p>Entenda a tecnologia por trás da manipulação de vídeos e vozes.</p>
-                <a href="#" class="btn-read">Acessar Aba</a>
-            </div>
-            <div class="card">
-                <h3>Guia de Sobrevivência Digital</h3>
-                <p>Aprenda a checar fontes e não cair em armadilhas virtuais.</p>
-                <a href="#" class="btn-read">Acessar Aba</a>
-            </div>
+        <section id="deepfakes" class="tab-content">
+            <h2>O Perigo das Deepfakes</h2>
+            <p>Deepfakes são vídeos, áudios ou imagens gerados por Inteligência Artificial que imitam perfeitamente o rosto e a voz de pessoas reais. Essa tecnologia pode ser usada para criar falsas declarações de políticos, golpes financeiros e espalhar boatos perigosos.</p>
+        </section>
+
+        <section id="combate" class="tab-content">
+            <h2>Combate e Checagem</h2>
+            <p>Para não ser manipulado por conteúdos falsos, siga estas dicas:</p>
+            <ul>
+                <li><strong>Desconfie do absurdo:</strong> Se uma notícia ou vídeo parece chocante demais, investigue antes de compartilhar.</li>
+                <li><strong>Olhe os detalhes visuais:</strong> Deepfakes costumam ter falhas no piscar de olhos, cortes estranhos na sincronia da fala ou borrões nas bordas do rosto.</li>
+                <li><strong>Busque fontes oficiais:</strong> Procure o mesmo assunto em portais de notícias confiáveis ou agências de checagem.</li>
+            </ul>
         </section>
 
     </main>
@@ -53,5 +72,6 @@
         <p>&copy; 2026 - Guia de Cidadania Digital e Inteligência Artificial</p>
     </footer>
 
+    <script src="script.js"></script>
 </body>
 </html>
