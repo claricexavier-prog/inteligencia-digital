@@ -3,66 +3,55 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cidadania Digital & IA</title>
+    <title>Cidadania Digital e IA</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <header>
-        <nav class="navbar">
-            <div class="logo">Conexão<span>Consciente</span></div>
-            <button class="menu-toggle" aria-label="Abrir menu">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
-            </button>
-            <ul class="nav-links">
-                <li><a href="index.html">Início</a></li>
-                <li><a href="deepfakes.html">Deepfakes</a></li>
-                <li><a href="desinformacao.html">Desinformação</a></li>
-            </ul>
+    <header class="main-header">
+        <div class="logo">Cidadania <span>Digital</span></div>
+        <nav class="nav-tabs">
+            <a href="#" class="active">Home</a>
+            <a href="#">Cidadania Digital</a>
+            <a href="#">Deepfakes</a>
+            <a href="#">Combate à Mentira</a>
         </nav>
     </header>
 
-    <section class="hero-section">
-        <div class="hero-content animate-fade-in">
-            <h1>Cidadania Digital <br>& Inteligência Artificial</h1>
-            <p>Navegando pelos impactos das Deepfakes e das redes de desinformação na sociedade.</p>
-            <a href="#sobre" class="btn-principal">Iniciar Exploração</a>
+    <section class="hero-striped">
+        <div class="hero-content">
+            <h1>Inteligência Artificial & Sociedade</h1>
+            <p>O Impacto das Deepfakes e da Desinformação no Mundo Real</p>
         </div>
     </section>
 
-    <section id="sobre" class="conteudo-sec">
-        <div class="container">
-            <div class="secao-header">
-                <h2>O Desafio da Era Algorítmica</h2>
-                <div class="linha-decorativa"></div>
+    <main class="content-container">
+        
+        <section class="intro-summary">
+            <h2>A Porta de Entrada</h2>
+            <p>Navegar na internet hoje exige mais do que apenas conexão: exige olhar crítico. A ascensão da Inteligência Artificial trouxe ferramentas incríveis, mas também facilitou a criação de <strong>deepfakes</strong> altamente realistas, capazes de distorcer a verdade e espalhar desinformação em massa.</p>
+        </section>
+
+        <hr>
+
+        <section class="navigation-cards">
+            <div class="card">
+                <h3>O que são Deepfakes?</h3>
+                <p>Entenda a tecnologia por trás da manipulação de vídeos e vozes.</p>
+                <a href="#" class="btn-read">Acessar Aba</a>
             </div>
-            <p class="texto-destaque">A Inteligência Artificial revolucionou a criação de conteúdo. Ser um <strong>cidadão digital</strong> hoje vai além do domínio técnico; exige discernimento crítico para proteger a verdade em um ecossistema hiperconectado.</p>
-            
-            <div class="impactos-cards">
-                <div class="card">
-                    <div class="card-icon">🎭</div>
-                    <h4>Mídia Sintética</h4>
-                    <p>Entenda como as Deepfakes manipulam áudio e vídeo com precisão quase humana e os riscos dessa tecnologia.</p>
-                    <a href="deepfakes.html" class="card-link">Explorar Deepfakes →</a>
-                </div>
-                <div class="card">
-                    <div class="card-icon">📢</div>
-                    <h4>Algoritmos e Mentiras</h4>
-                    <p>Analise a mecânica por trás da desinformação em massa e descubra o impacto nas estruturas democráticas.</p>
-                    <a href="desinformacao.html" class="card-link">Analisar Impacto →</a>
-                </div>
+            <div class="card">
+                <h3>Guia de Sobrevivência Digital</h3>
+                <p>Aprenda a checar fontes e não cair em armadilhas virtuais.</p>
+                <a href="#" class="btn-read">Acessar Aba</a>
             </div>
-        </div>
-    </section>
+        </section>
+
+    </main>
 
     <footer>
-        <div class="container footer-content">
-            <p>&copy; 2026 - Hub de Cidadania Digital. Educação e Conscientização Tecnológica.</p>
-        </div>
+        <p>&copy; 2026 - Guia de Cidadania Digital e Inteligência Artificial</p>
     </footer>
 
-    <script src="script.js"></script>
 </body>
 </html>
