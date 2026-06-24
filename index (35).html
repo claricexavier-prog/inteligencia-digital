@@ -1,27 +1,27 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cidadania Digital e IA</title>
-    <link rel="stylesheet" href="style.css">
+    <title>cidadania digital e ia</title>
+    <link rel="stylesheet" href="./style.css">
 </head>
 <body>
 
     <header class="main-header">
-        <div class="logo">Cidadania <span>Digital</span></div>
+        <div class="logo">cidadania <span>digital</span></div>
         <nav class="nav-tabs">
-            <a href="#" class="active" onclick="mudarAba(event, 'home')">Home</a>
-            <a href="#" onclick="mudarAba(event, 'cidadania')">Cidadania Digital</a>
-            <a href="#" onclick="mudarAba(event, 'deepfakes')">Deepfakes</a>
-            <a href="#" onclick="mudarAba(event, 'combate')">Combate</a>
+            <a href="#" class="nav-link active" data-target="home">home</a>
+            <a href="#" class="nav-link" data-target="cidadania">cidadania digital</a>
+            <a href="#" class="nav-link" data-target="deepfakes">deepfakes</a>
+            <a href="#" class="nav-link" data-target="combate">combate</a>
         </nav>
     </header>
 
     <section class="hero-striped">
         <div class="hero-content">
-            <h1>Inteligência Artificial & Sociedade</h1>
-            <p>O Impacto das Deepfakes e da Desinformação no Mundo Real</p>
+            <h1>inteligência artificial & sociedade</h1>
+            <p>o impacto das deepfakes e da desinformação no mundo real</p>
         </div>
     </section>
 
@@ -29,49 +29,49 @@
         
         <section id="home" class="tab-content active-content">
             <div class="intro-summary">
-                <h2>A Porta de Entrada</h2>
-                <p>Navegar na internet hoje exige mais do que apenas conexão: exige olhar crítico. A ascensão da Inteligência Artificial trouxe ferramentas incríveis, mas também facilitou a criação de <strong>deepfakes</strong> altamente realistas, capazes de distorcer a verdade.</p>
+                <h2>a porta de entrada</h2>
+                <p>navegar na internet hoje exige mais do que apenas conexão: exige olhar crítico. a ascensão da inteligência artificial trouxe ferramentas incríveis, mas também facilitou a criação de <strong>deepfakes</strong> altamente realistas, capazes de distorcer a verdade.</p>
             </div>
             <div class="navigation-cards">
                 <div class="card">
-                    <h3>O que são Deepfakes?</h3>
-                    <p>Entenda a tecnologia por trás da manipulação de vídeos e vozes.</p>
-                    <a href="#" class="btn-read" onclick="mudarAba(event, 'deepfakes')">Ir para Deepfakes</a>
+                    <h3>o que são deepfakes?</h3>
+                    <p>entenda a tecnologia por trás da manipulação de vídeos e vozes.</p>
+                    <button class="btn-read" data-goto="deepfakes">ir para deepfakes</button>
                 </div>
                 <div class="card">
-                    <h3>Guia de Sobrevivência Digital</h3>
-                    <p>Aprenda a checar fontes e não cair em armadilhas virtuais.</p>
-                    <a href="#" class="btn-read" onclick="mudarAba(event, 'combate')">Ir para Combate</a>
+                    <h3>guia de sobrevivência digital</h3>
+                    <p>aprenda a checar fontes e não cair em armadilhas virtuais.</p>
+                    <button class="btn-read" data-goto="combate">ir para combate</button>
                 </div>
             </div>
         </section>
 
         <section id="cidadania" class="tab-content">
-            <h2>Cidadania Digital</h2>
-            <p>Ser um cidadão digital significa usar a tecnologia de forma responsável, ética e segura. Envolve o respeito ao próximo nas redes, a proteção dos seus próprios dados e a habilidade de questionar a veracidade de tudo o que consome.</p>
+            <h2>cidadania digital</h2>
+            <p>ser um cidadão digital significa usar a tecnologia de forma responsável, ética e segura. envolve o respeito ao próximo nas redes, a proteção dos seus próprios dados e a habilidade de questionar a veracidade de tudo o que consome.</p>
         </section>
 
         <section id="deepfakes" class="tab-content">
-            <h2>O Perigo das Deepfakes</h2>
-            <p>Deepfakes são vídeos, áudios ou imagens gerados por Inteligência Artificial que imitam perfeitamente o rosto e a voz de pessoas reais. Essa tecnologia pode ser usada para criar falsas declarações de políticos, golpes financeiros e espalhar boatos perigosos.</p>
+            <h2>o perigo das deepfakes</h2>
+            <p>deepfakes são vídeos, áudios ou imagens gerados por inteligência artificial que imitam perfeitamente o rosto e a voz de pessoas reais. essa tecnologia pode ser usada para criar falsas declarações de políticos, golpes financeiros e espalhar boatos perigosos.</p>
         </section>
 
         <section id="combate" class="tab-content">
-            <h2>Combate e Checagem</h2>
-            <p>Para não ser manipulado por conteúdos falsos, siga estas dicas:</p>
+            <h2>combate e checagem</h2>
+            <p>para não ser manipulado por conteúdos falsos, siga estas dicas:</p>
             <ul>
-                <li><strong>Desconfie do absurdo:</strong> Se uma notícia ou vídeo parece chocante demais, investigue antes de compartilhar.</li>
-                <li><strong>Olhe os detalhes visuais:</strong> Deepfakes costumam ter falhas no piscar de olhos, cortes estranhos na sincronia da fala ou borrões nas bordas do rosto.</li>
-                <li><strong>Busque fontes oficiais:</strong> Procure o mesmo assunto em portais de notícias confiáveis ou agências de checagem.</li>
+                <li><strong>desconfie do absurdo:</strong> se uma notícia ou vídeo parece chocante demais, investigue antes de compartilhar.</li>
+                <li><strong>olhe os detalhes visuais:</strong> deepfakes costumam ter falhas no piscar de olhos, cortes estranhos na sincronia da fala ou borrões nas bordas do rosto.</li>
+                <li><strong>busque fontes oficiais:</strong> procure o mesmo assunto em portais de notícias confiáveis ou agências de checagem.</li>
             </ul>
         </section>
 
     </main>
 
     <footer>
-        <p>&copy; 2026 - Guia de Cidadania Digital e Inteligência Artificial</p>
+        <p>&copy; 2026 - guia de cidadania digital e inteligência artificial</p>
     </footer>
 
-    <script src="script.js"></script>
+    <script src="./script.js"></script>
 </body>
 </html>
